@@ -3,11 +3,16 @@ require "settings/init.php";
 
 if (!empty($_POST["data"])) {
     $data = $_POST["data"];
+    $file = $_FILES;
 
-    $sql = "INSERT INTO produkter (prodTitle, prodDescription, prodPrice, prodAuthor, prodGenre, prodPages, prodDate, prodLanguage, prodPublisher, prodISBN) 
-VALUES (:prodTitle, :prodDescription, :prodPrice, :prodAuthor, :prodGenre, :prodPages, :prodDate, :prodLanguage, :prodPublisher, :prodISBN)";
+    if(!empty($file["prodImage"]["tmp_name"])){
+        move_uploaded_file($file["prodImage"]["tmp_name"], "uploads/" . basename($file["prodImage"]["name"]));
+    }
+
+    $sql = "INSERT INTO produkter (prodTitle, prodDescription, prodPrice, prodAuthor, prodGenre, prodPages, prodDate, prodLanguage, prodPublisher, prodISBN, prodImage, prodEdition) 
+    VALUES (:prodTitle, :prodDescription, :prodPrice, :prodAuthor, :prodGenre, :prodPages, :prodDate, :prodLanguage, :prodPublisher, :prodISBN, :prodImage, :prodEdition)";
     $bind = [":prodTitle" => $data["prodTitle"], ":prodDescription" => $data["prodDescription"], ":prodPrice" => $data["prodPrice"],
-        ":prodAuthor" => $data["prodAuthor"], ":prodGenre" => $data["prodGenre"], ":prodPages" => $data["prodPages"], ":prodDate" => $data["prodDate"], ":prodLanguage" => $data["prodLanguage"], ":prodPublisher" => $data["prodPublisher"], ":prodISBN" => $data["prodISBN"]
+        ":prodAuthor" => $data["prodAuthor"], ":prodGenre" => $data["prodGenre"], ":prodPages" => $data["prodPages"], ":prodDate" => $data["prodDate"], ":prodLanguage" => $data["prodLanguage"], ":prodPublisher" => $data["prodPublisher"], ":prodISBN" => $data["prodISBN"] , ":prodEdition" => $data["prodEdition"], ":prodImage" => (!empty($file["prodImage"]["tmp_name"])) ? $file["prodImage"]["name"] : NULL,
     ];
 
     $db->sql($sql, $bind, false);
@@ -39,7 +44,7 @@ VALUES (:prodTitle, :prodDescription, :prodPrice, :prodAuthor, :prodGenre, :prod
 
 <body>
 
-<form method="post" action="insert.php">
+<form method="post" action="insert.php" enctype="multipart/form-data">
 
     <div class="container">
     <div class="row">
@@ -50,65 +55,77 @@ VALUES (:prodTitle, :prodDescription, :prodPrice, :prodAuthor, :prodGenre, :prod
 
         <div class="col-12 col-md-6 p-3">
             <div class="form-group">
-                <label style="width: 80px" for="prodTitle">Bog titel</label>
+                <label style="width: 110px" for="prodTitle">Bog titel</label>
                 <input class="form-group" type="text" name="data[prodTitle]" id="prodTitle" placeholder="Bog titel" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-6 p-3">
             <div class="form-group">
-                <label style="width: 80px"for="prodAuthor">Forfatter</label>
+                <label style="width: 110px"for="prodAuthor">Forfatter</label>
                 <input class="form-group" type="text" name="data[prodAuthor]" id="prodAuthor" placeholder="Forfatter" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-6 p-3">
             <div class="form-group">
-                <label style="width: 80px" for="prodPublisher">Forlag</label>
+                <label style="width: 110px" for="prodPublisher">Forlag</label>
                 <input class="form-group" type="text" name="data[prodPublisher]" id="prodPublisher" placeholder="Forlag" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-6 p-3">
             <div class="form-group">
-                <label style="width: 80px" for="prodISBN">ISBN nr.</label>
+                <label style="width: 110px" for="prodISBN">ISBN nr.</label>
                 <input class="form-group" type="number" name="data[prodISBN]" id="prodISBN" placeholder="ISBN nr." value="">
             </div>
         </div>
 
         <div class="col-12 col-md-6 p-3">
             <div class="form-group">
-                <label style="width: 80px" for="prodPages">Sidetal</label>
+                <label style="width: 110px" for="prodPages">Sidetal</label>
                 <input class="form-group" type="number" name="data[prodPages]" id="prodPages" placeholder="Sidetal" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-6 p-3">
             <div class="form-group">
-                <label style="width: 80px" for="prodDate">Dato</label>
+                <label style="width: 110px" for="prodDate">Udgivelsesdato</label>
                 <input style="width: 190px" class="form-group" type="date" name="data[prodDate]" id="prodDate" placeholder="" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-6 p-3">
             <div class="form-group">
-                <label style="width: 80px" for="prodGenre">Genre</label>
+                <label style="width: 110px" for="prodEdition">Udgave</label>
+                <input class="form-group" type="number" name="data[prodEdition]" id="prodEdition" placeholder=".Udgave" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-3">
+            <div class="form-group">
+                <label style="width: 110px" for="prodGenre">Genre</label>
                 <input class="form-group" type="text" name="data[prodGenre]" id="prodGenre" placeholder="Genre" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-6 p-3">
             <div class="form-group">
-                <label style="width: 80px" for="prodLanguage">Sprog</label>
+                <label style="width: 110px" for="prodLanguage">Sprog</label>
                 <input class="form-group" type="text" name="data[prodLanguage]" id="prodLanguage" placeholder="Sprog" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-6 p-3">
             <div class="form-group">
-                <label style="width: 80px" for="prodPrice">Bog pris</label>
-                <input class="form-group" type="number" step="0.1" name="data[prodPrice]" id="prodPrice" placeholder="Bog pris" value="">
+                <label style="width: 110px" for="prodPrice">Bog pris</label>
+                <input class="form-group" type="number" step="0.01" name="data[prodPrice]" id="prodPrice" placeholder="Bog pris" value="">
             </div>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label" for="prodImage">Bog cover</label>
+            <input type="file" class="form-control" id="prodImage" name="prodImage">
         </div>
 
         <div class="col-12 p-3">

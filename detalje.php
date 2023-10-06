@@ -39,6 +39,7 @@ foreach ($produkter as $produkt){
             <div class="col-12 col-md-6 p-2">
                 <?php
                 echo $produkt->prodImage;
+                /*help*/
                 ?>
             </div>
 

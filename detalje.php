@@ -2,7 +2,7 @@
 
 require "settings/init.php";
 
-$produkter = $db->sql("SELECT * FROM produkter where prodId = 14");
+$produkter = $db->sql("SELECT * FROM produkter where prodId = 11");
 
 
 ?>
@@ -31,34 +31,43 @@ $produkter = $db->sql("SELECT * FROM produkter where prodId = 14");
 foreach ($produkter as $produkt){
     ?>
 
+
+
     <div class="container">
-        <div class="row p-4">
+        <div class="row mt-5">
 
-            <div class="col-12">
-                <?php
-                echo $produkt->prodTitle;
-                ?>
-            </div>
-
-            <div class="col-12">
-                <?php
-                echo $produkt->prodAuthor;
-                ?>
-            </div>
-
-            <div class="col-12 ">
-                <?php
-                echo number_format($produkt->prodPrice, 2, ",", ".");
-                ?>
-            </div>
-
-            <div class="col-12">
+            <div class="col-12 col-md-6 p-2">
                 <?php
                 echo $produkt->prodImage;
                 ?>
             </div>
 
-            <div class="col-12">
+            <div class="col-12 col-md-6 p-2">
+                <h2>
+                <?php
+                echo $produkt->prodTitle;
+                ?>
+                </h2>
+
+                <h4>
+                <?php
+                echo $produkt->prodAuthor;
+                ?>
+                </h4>
+
+                <p>
+                <?php
+                echo number_format($produkt->prodPrice, 2, ",", ".");
+                ?>
+                DKK
+                </p>
+
+            </div>
+
+            <div class="col-12 p-2 mb-3">
+
+                <h5 class="mb-2">Beskrivelse</h5>
+
                 <?php
                 echo $produkt->prodDescription;
                 ?>
@@ -69,7 +78,7 @@ foreach ($produkter as $produkt){
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                           Mere information
+                            <h5>Mere information</h5>
                         </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -79,98 +88,99 @@ foreach ($produkter as $produkt){
                                     <strong>Titel:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodTitle;
                                     ?>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <strong>Forfatter:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodAuthor;
                                     ?>
                                 </div>
 
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <strong>Pris:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodPrice;
                                     ?>
+                                    DKK
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <strong>Udgivelsesdato:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodDate;
                                     ?>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <strong>Forlag:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodPublisher;
                                     ?>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <strong>Sider:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodPages;
                                     ?>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <strong>ISBN:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodISBN;
                                     ?>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <strong>Sprog:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodLanguage;
                                     ?>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <strong>Udgave:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodEdition;
                                     ?>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <strong>Genre:</strong>
                                 </div>
 
-                                <div class="col-6 p-3">
+                                <div class="col-6 p-3 mereinfo">
                                     <?php
                                     echo $produkt->prodGenre;
                                     ?>

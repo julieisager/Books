@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Julie",
+    "age": "22",
+    "image": "julie.jpg",
+    "favoritColors": ["lilla", "blue"],
+    "hobbies": {
+      "cs": "noob",
+      "badminton": "god"
+    }
+
+  },
+
+  {
+    "name": "Daniel",
+    "age": "24",
+    "image": "daniel.jpg",
+    "favoritColors": ["red", "black"],
+    "hobbies": {
+      "cs": "god",
+      "badminton": {
+        "level": "noob",
+        "nextLevel": "mindre noob"
+      }
+    }
+  }
+]

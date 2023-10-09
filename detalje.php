@@ -36,33 +36,36 @@ foreach ($produkter as $produkt){
     <div class="container">
         <div class="row mt-5">
 
-            <div class="col-12 col-md-6 p-2">
-                <?php
-                echo $produkt->prodImage;
-                /*help*/
-                ?>
+            <div class="col-12 col-md-6 p-2 center-content">
+                <div class="">
+                    <h2>
+                    <?php
+                    echo $produkt->prodTitle;
+                    ?>
+                    </h2>
+                </div>
+
+                <div class="">
+                    <h4>
+                    <?php
+                    echo $produkt->prodAuthor;
+                    ?>
+                    </h4>
+                </div>
+
+                <div class="">
+                    <p>
+                    <?php
+                    echo number_format($produkt->prodPrice, 2, ",", ".");
+                    ?>
+                    DKK
+                    </p>
+                </div>
+
             </div>
 
-            <div class="col-12 col-md-6 p-2">
-                <h2>
-                <?php
-                echo $produkt->prodTitle;
-                ?>
-                </h2>
-
-                <h4>
-                <?php
-                echo $produkt->prodAuthor;
-                ?>
-                </h4>
-
-                <p>
-                <?php
-                echo number_format($produkt->prodPrice, 2, ",", ".");
-                ?>
-                DKK
-                </p>
-
+            <div class="col-12 col-md-6 p-2 d-flex justify-content-center">
+                <img src="uploads/<?php echo $produkt->prodImage; ?>">
             </div>
 
             <div class="col-12 p-2 mb-3">
@@ -77,7 +80,7 @@ foreach ($produkter as $produkt){
 
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
+                    <h2 class="accordion-header mb-3" id="flush-headingOne">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             <h5>Mere information</h5>
                         </button>

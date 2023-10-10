@@ -36,17 +36,17 @@ img {
 	border-bottom: 1px lightslategray solid;
 }
 
-.center-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-}
 
 .products .items .card-img-top{
 	height: 200px;
 	object-fit: cover;
 }
+
+.card-body{
+	/*height: 300px;*/
+
+}
+
 
 
 

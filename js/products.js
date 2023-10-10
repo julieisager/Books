@@ -40,7 +40,7 @@ export default class Products {
                     <div class="card-body">
                         <h5 class="card-title">${item.prodTitle}</h5>
                         <p class="card-text">${item.prodDescription}</p>
-                        <a href="detalje.php?prodId=${item.prodId}" class="btn btn-primary text-white w-100">Se produkt</a>
+                        <a href="detalje.php?prodId=${item.prodId}" class="btn btn-primary text-white w-100">Læse mere om bogen</a>
                     </div>
                 </div>
           

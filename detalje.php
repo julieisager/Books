@@ -2,7 +2,7 @@
 
 require "settings/init.php";
 
-$produkter = $db->sql("SELECT * FROM produkter where prodId = 11");
+$produkter = $db->sql("SELECT * FROM produkter where prodId = :prodId", [":prodId" => $_GET["prodId"]]);
 
 
 ?>

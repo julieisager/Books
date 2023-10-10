@@ -13,10 +13,15 @@ if(isset($data["password"]) && $data["password"] == "kickPHP"){
     $sql ="SELECT * FROM produkter WHERE 1=1";
     $bind = [];
 
-    if(!empty($data["nameSearch"])){
-        $sql = $sql . " AND prodTitle LIKE CONCAT('%', :prodTitle, '%') ";
+    if (!empty($data["nameSearch"])) {
+        $sql = $sql . " AND (prodTitle LIKE CONCAT('%', :prodTitle, '%') OR prodAuthor LIKE CONCAT('%', :prodAuthor, '%') OR prodLanguage LIKE CONCAT('%', :prodLanguage, '%')) ";
         $bind[":prodTitle"] = $data["nameSearch"];
+        $bind[":prodAuthor"] = $data["nameSearch"];
+        $bind[":prodLanguage"] = $data["nameSearch"];
     }
+
+
+
 
     /*$sql . = "SELECT * FROM produkter ORDER BY "; help*/
 

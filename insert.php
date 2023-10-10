@@ -130,7 +130,9 @@ if (!empty($_POST["data"])) {
 
         <div class="col-12 p-3">
             <label for="prodDescription">Produkt beskrivelse</label>
-            <textarea class="form-control" name="data[prodDescription]" id="prodDescription"></textarea>
+            <textarea class="form-control" name="data[prodDescription]" id="prodDescription">
+                <p class="text"> </p>
+            </textarea>
         </div>
 
 

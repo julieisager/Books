@@ -28,7 +28,7 @@ export default class Products {
         const data = await this.getData();
 
         const row = document.createElement('div');
-        row.classList.add('row', 'g-4');
+        row.classList.add('row', 'g-4', 'mb-3');
 
         for(const item of data){
             const col = document.createElement('div');
@@ -40,7 +40,7 @@ export default class Products {
                     <div class="card-body">
                         <h5 class="card-title">${item.prodTitle}</h5>
                         <p class="card-text">${item.prodDescription}</p>
-                        <a href="detalje.php?prodId=${item.prodId}" class="btn btn-primary text-white w-100">Læse mere om bogen</a>
+                        <a href="detalje.php?prodId=${item.prodId}" class="knap btn btn-primary text-white w-100">Læse mere om bogen</a>
                     </div>
                 </div>
           

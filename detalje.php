@@ -57,7 +57,7 @@ foreach ($produkter as $produkt){
 
 
             <div class="col-12 col-md-6 p-2">
-                <div class="">
+                <div class="" style="">
                     <h2>
                     <?php
                     echo $produkt->prodTitle;
@@ -75,10 +75,8 @@ foreach ($produkter as $produkt){
                 </div>
 
 
-                <div class="mt-3">
-
+                <div class="mt-3 allText">
                     <h5 class="mb-2">Beskrivelse</h5>
-
                     <?php
                     echo $produkt->prodDescription;
                     ?>

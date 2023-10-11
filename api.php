@@ -20,10 +20,7 @@ if(isset($data["password"]) && $data["password"] == "kickPHP"){
         $bind[":prodLanguage"] = $data["nameSearch"];
     }
 
-
-
-
-    /*$sql . = "SELECT * FROM produkter ORDER BY "; help*/
+    $sql .= " ORDER BY prodTitle ASC";
 
     $produkter = $db->sql($sql, $bind);
     header("HTTP/1.1 200 OK");

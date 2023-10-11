@@ -38,8 +38,6 @@ img {
 .card-body{
 	height: 290px;
 	overflow: hidden;
-
-
 }
 
 .text{
@@ -52,14 +50,13 @@ img {
 
 }
 
-.knap{
-	bottom: -10px;
-	position: relative;
-}
-
 .title{
-	margin-top: -10px;
-	height: 66px;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
 }
 
 

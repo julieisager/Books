@@ -38,11 +38,10 @@ export default class Products {
                 <div class="card">
                     <img src="uploads/${item.prodImage}" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title title">${item.prodTitle}
-                        <p class="fs-6 fw-bold mt-2">${item.prodAuthor}</p>
-                        </h5>
+                        <h5 class="card-title title">${item.prodTitle}</h5>
+                        <p class="fs-6 fw-bold mt-2 title">${item.prodAuthor}</p>
                         <p class="card-text mt-2">${item.prodDescription}</p>
-                        <a href="detalje.php?prodId=${item.prodId}" class="knap btn btn-primary text-white w-100">Læse mere om bogen</a>
+                        <a href="detalje.php?prodId=${item.prodId}" class="w-100 btn btn-primary text-white mt-2">Læse mere om bogen</a>
                         <div class="d-none">${item.prodLanguage}</div>
                     </div>
                 </div>
